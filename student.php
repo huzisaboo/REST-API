@@ -40,8 +40,7 @@ class Student
     {
      
         // query to read single record
-        $query = "SELECT * FROM students WHERE id = $this->id";
-
+        $query = "SELECT * FROM students WHERE id = '$this->id'";
         if($result = mysqli_query($this->conn,$query))
         {
             if(mysqli_num_rows($result) > 0)
@@ -72,19 +71,6 @@ class Student
                 }
             }
         }
-        // prepare query statement
-       // $stmt = $this->conn->prepare( $query );
-     
-        // bind id of product to be updated
-      //  $stmt->bindParam(1, $this->id);
-     
-        // execute query
-       // $stmt->execute();
-     
-        // get retrieved row
-      //  $row = $stmt->fetch(PDO::FETCH_ASSOC);
-        // set values to object properties
-
     
     }
 }
