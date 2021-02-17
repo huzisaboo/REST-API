@@ -7,15 +7,15 @@ header("Access-Control-Allow-Credentials: true");
 header('Content-Type: application/json');
  
 // include database and object files
-include_once 'database.php';
+include_once 'databaseclass.php';
 include_once 'student.php';
  
 // get database connection
 $database = new Database();
-$db = $database->getConnection();
+$db = $database->get_connection();
  
 // prepare product object
-$student = new Product($db);
+$student = new Student($db);
  
 // set ID property of record to read
 $student->id = isset($_GET['id']) ? $_GET['id'] : die();
@@ -25,7 +25,7 @@ $student->readOne();
  
 if($student->name!=null){
     // create array
-    $product_arr = array(
+    $student_arr = array(
  "id" => $student->id,
  "name" => $student->name,
  "last_name" => $student->last_name,
@@ -53,7 +53,7 @@ if($student->name!=null){
     http_response_code(200);
  
     // make it json format
-    echo json_encode($product_arr);
+    echo json_encode($student_arr);
 }
  
 else{

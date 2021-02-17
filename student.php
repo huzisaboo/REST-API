@@ -40,43 +40,52 @@ class Student
     {
      
         // query to read single record
-        $query = "SELECT * FROM" . $this->table_name . "WHERE p.id = ? LIMIT 0,1";
-     
+        $query = "SELECT * FROM students WHERE id = $this->id";
+
+        if($result = mysqli_query($this->conn,$query))
+        {
+            if(mysqli_num_rows($result) > 0)
+            {
+                while ($row = mysqli_fetch_array($result)) 
+                {
+                    $this->id = $row["id"];
+                     $this->name = $row["name"];
+                    $this->last_name = $row["last_name"];
+                    $this->weight = $row["weight"];
+                    $this->batch = $row["batch"];
+                    $this->description = $row["description"];
+                    $this->address = $row["address"];
+                    $this->city = $row["city"];
+                    $this->province = $row["province"];
+                    $this->country = $row["country"];
+                    $this->phone = $row["phone"];
+                    $this->email = $row["email"];
+                    $this->website = $row["website"];
+                    $this->MAD100 = $row["MAD100"];
+                    $this->MAD105 = $row["MAD105"];
+                    $this->MAD110 = $row["MAD110"];
+                    $this->MAD120 = $row["MAD120"];
+                    $this->MAD125 = $row["MAD125"];
+                    $this->MAD200 = $row["MAD200"];
+                    $this->MAD225 = $row["MAD225"];
+                    $this->status = $row["status"];
+                }
+            }
+        }
         // prepare query statement
-        $stmt = $this->conn->prepare( $query );
+       // $stmt = $this->conn->prepare( $query );
      
         // bind id of product to be updated
-        $stmt->bindParam(1, $this->id);
+      //  $stmt->bindParam(1, $this->id);
      
         // execute query
-        $stmt->execute();
+       // $stmt->execute();
      
         // get retrieved row
-        $row = $stmt->fetch(PDO::FETCH_ASSOC);
-     
+      //  $row = $stmt->fetch(PDO::FETCH_ASSOC);
         // set values to object properties
 
-    $this->id = $row["id"];
-    $this->name = $row["name"];
-    $this->last_name = $row["last_name"];
-    $this->weight = $row["weight"];
-    $this->batch = $row["batch"];
-    $this->description = $row["description"];
-    $this->address = $row["address"];
-    $this->city = $row["city"];
-    $this->province = $row["province"];
-    $this->country = $row["country"];
-    $this->phone = $row["phone"];
-    $this->email = $row["email"];
-    $this->website = $row["website"];
-    $this->MAD100 = $row["MAD100"];
-    $this->MAD105 = $row["MAD105"];
-    $this->MAD110 = $row["MAD110"];
-    $this->MAD120 = $row["MAD120"];
-    $this->MAD125 = $row["MAD125"];
-    $this->MAD200 = $row["MAD200"];
-    $this->MAD225 = $row["MAD225"];
-    $this->status = $row["status"];
+    
     }
 }
 ?>
