@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 16, 2021 at 11:17 PM
+-- Generation Time: Feb 17, 2021 at 02:36 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.11
 
@@ -57,7 +57,9 @@ CREATE TABLE `students` (
 --
 
 INSERT INTO `students` (`id`, `name`, `last_name`, `height`, `weight`, `batch`, `description`, `address`, `city`, `province`, `country`, `phone`, `email`, `website`, `MAD100`, `MAD105`, `MAD110`, `MAD120`, `MAD125`, `MAD200`, `MAD225`, `status`) VALUES
-('A0000001', 'Huzaifa', 'Saboowala', 1.68, 78, 'MAD Sept 2020', 'Huzaifa is a student of MAD 2020.', '5166 Sunray Drive', 'Mississauga', 'Ontario', 'CA', '4379895253', 'huzisaboo@gmail.com', NULL, 95, 88, 92, 97, 91, 89, 86, 1);
+('A00012345', 'Rajesh', 'Bandi', 1.75, 80, 'MAD Sep 2016', 'Rajesh is a professor of MAD 2020', '1234 King St W', 'Toronto', 'ON', 'CA', '6477777777', 'rk@professorrk.com', '', 90, 77, 88, 87, 95, 80, 78, 1),
+('A00121461', 'Huzaifa', 'Saboowala', 1.68, 78, 'MAD Sept 2020', 'Huzaifa is a student of MAD 2020.', '5166 Sunray Drive', 'Mississauga', 'Ontario', 'CA', '4379895253', 'huzisaboo@gmail.com', 'www.mrawesome.com', 95, 88, 92, 97, 91, 89, 86, 1),
+('A00121581', 'Shreyas', 'Babu', 1.69, 55, 'MAD Sept 2020', 'Shreyas is a student of MAD 2020.', 'Somewhere near Chalo Fresh Co.', 'Mississauga', 'Ontario', 'CA', '6476789124', 'shreyas.babu28@gmail.com', 'www.iamshreyascool.com', 92, 94, 88, 85, 89, 93, 99, 1);
 
 --
 -- Indexes for dumped tables

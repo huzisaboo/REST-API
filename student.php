@@ -10,6 +10,7 @@ class Student
     public $id;
     public $name;
     public $last_name;
+    public $height;
     public $weight;
     public $batch;
     public $description;
@@ -50,6 +51,7 @@ class Student
                     $this->id = $row["id"];
                      $this->name = $row["name"];
                     $this->last_name = $row["last_name"];
+                    $this->height = $row["height"];
                     $this->weight = $row["weight"];
                     $this->batch = $row["batch"];
                     $this->description = $row["description"];

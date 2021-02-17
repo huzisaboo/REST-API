@@ -29,6 +29,7 @@ if($student->name!=null){
  "id" => $student->id,
  "name" => $student->name,
  "last_name" => $student->last_name,
+ "height" => $student->height,
  "weight" => $student->weight,
  "batch" => $student->batch,
  "description" => $student->description,
