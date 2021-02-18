@@ -29,6 +29,7 @@ class Student
     public $MAD200;
     public $MAD225;
     public $status;
+    public $delFlag;
    // public $action;
 
     // constructor with $db as database connection
@@ -43,6 +44,12 @@ class Student
      
 switch ($string) 
 {
+    case 'CRE':
+    {
+        //Logic for Create
+        break;
+    }
+
 	case 'GET':
 	{
 		// query to read single record
@@ -82,9 +89,25 @@ switch ($string)
 	}
 	case 'DEL':
 	{
-		printf("Student Record with this 'ID' deleted");
+        $this->delFlag = 0;
+		// query to read single record
+        $query = "DELETE FROM students WHERE id = '$this->id'";
+        if(mysqli_query($this->conn,$query))
+        {
+            if(mysqli_affected_rows($this->conn) ==1)
+            {
+                $this->delFlag = 1;
+            }
+        }
+       
 		break;	
 	}
+    case 'UPD':
+    {
+        //Logic for Update
+        break;
+    }
+        
 
 	
 	default:
