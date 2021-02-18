@@ -90,10 +90,7 @@ switch ($string)
 	default:
 		printf("Please Specify a action after the ID in URL");
 		break;
+}    
 }
-
-        
-    
-    }
 }
 ?>
