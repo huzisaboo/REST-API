@@ -25,11 +25,18 @@ if(isset($_SERVER['REQUEST_URI'])){
    // if(isset($array[0])){ $x = $array[0]; }
     //if(isset($array[1])){ $o->api = $array[1]; }
     //if(isset($array[2])){ $o->api = $array[2]; }
-    if(isset($array[3])){ $student->id = $array[3]; }
+    if(isset($array[2])){ $student->id = $array[2]; }
     //if(isset($array[4])){ $o->action = $array[4]; }
  }	
 // read the details of product to be edited
-$student->readOne($array[4]);
+ if(isset($array[3]))
+ {
+    $student->readOne($array[3]);    
+ }
+ else
+ {
+  $student->readOne("GET");  
+ }
  
 if($student->name!=null)
 {
