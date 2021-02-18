@@ -29,6 +29,7 @@ class Student
     public $MAD200;
     public $MAD225;
     public $status;
+   // public $action;
 
     // constructor with $db as database connection
     public function __construct($db)
@@ -37,10 +38,14 @@ class Student
     }
 
     // used when filling up the update product form
-    function readOne()
+    function readOne($string)
     {
      
-        // query to read single record
+switch ($string) 
+{
+	case 'GET':
+	{
+		// query to read single record
         $query = "SELECT * FROM students WHERE id = '$this->id'";
         if($result = mysqli_query($this->conn,$query))
         {
@@ -73,6 +78,21 @@ class Student
                 }
             }
         }
+		break;	
+	}
+	case 'DEL':
+	{
+		printf("Student Record with this 'ID' deleted");
+		break;	
+	}
+
+	
+	default:
+		printf("Please Specify a action after the ID in URL");
+		break;
+}
+
+        
     
     }
 }

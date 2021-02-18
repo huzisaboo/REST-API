@@ -18,14 +18,23 @@ $db = $database->get_connection();
 $student = new Student($db);
  
 // set ID property of record to read
-$student->id = isset($_GET['id']) ? $_GET['id'] : die();
- 
+//$student->id = isset($_GET['id']) ? $_GET['id'] : die();
+
+if(isset($_SERVER['REQUEST_URI'])){
+    $array = explode('/', $_SERVER['REQUEST_URI']);
+   // if(isset($array[0])){ $x = $array[0]; }
+    //if(isset($array[1])){ $o->api = $array[1]; }
+    //if(isset($array[2])){ $o->api = $array[2]; }
+    if(isset($array[3])){ $student->id = $array[3]; }
+    //if(isset($array[4])){ $o->action = $array[4]; }
+ }	
 // read the details of product to be edited
-$student->readOne();
+$student->readOne($array[4]);
  
-if($student->name!=null){
+if($student->name!=null)
+{
     // create array
-    $student_arr = array(
+ $student_arr = array(
  "id" => $student->id,
  "name" => $student->name,
  "last_name" => $student->last_name,
